@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: microcloud-config-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-dev.com:7001/eureka
+---
+spring:
+  profiles: beta
+  application:
+    name: microcloud-config-client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-beta.com:7001/eureka
