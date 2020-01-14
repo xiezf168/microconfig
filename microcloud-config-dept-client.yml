@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: microcloud-config-dept-client
+server:
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7001.com:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2 #默认30秒
+    lease-expiration-duration-in-seconds: 5 #默认90秒 
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+---
+spring:
+  profiles: beta
+  application:
+    name: microcloud-config-dept-client
+server:
+  port: 8001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7001.com:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2 #默认30秒
+    lease-expiration-duration-in-seconds: 5 #默认90秒 
+    instance-id: dept-8001.com
+    prefer-ip-address: true
