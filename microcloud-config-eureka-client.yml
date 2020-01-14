@@ -3,33 +3,38 @@ spring:
     active:
     - dev
 ---
+server:
+  port: 7001
 spring:
   profiles: dev
   application:
     name: microcloud-config-eureka-client
-server:
-  port: 7001
 eureka:
+  instance:
+    hostname: eureka-7001.com
+  server:
+    eviction-interval-timer-in-ms: 600000
+    enable-self-preservation: true
   client:
     service-url:
       defaultZone: http://eureka-7001.com:7001/eureka
-  instance:
-    lease-renewal-interval-in-seconds: 2 #默认30秒
-    lease-expiration-duration-in-seconds: 5 #默认90秒 
-    instance-id: eureka-7001.com
-    prefer-ip-address: true
+    register-with-eureka: false
+    fetch-registry: false
 ---
+server:
+  port: 7001
 spring:
   profiles: beta
   application:
     name: microcloud-config-eureka-client
-server:  port: 7001
 eureka:
+  instance:
+    hostname: eureka-7001.com
+  server:
+    eviction-interval-timer-in-ms: 600000
+    enable-self-preservation: true
   client:
     service-url:
       defaultZone: http://eureka-7001.com:7001/eureka
-  instance:
-    lease-renewal-interval-in-seconds: 2 #默认30秒
-    lease-expiration-duration-in-seconds: 5 #默认90秒 
-    instance-id: eureka-7001.com
-    prefer-ip-address: true
+    register-with-eureka: false
+    fetch-registry: false
